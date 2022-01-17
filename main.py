@@ -5,23 +5,24 @@ __human_name__ = 'strings'
 # Add your code after this line
 """Assignment: Strings
 Hugo Maat, 12 January 2022
-This program reports on the goals in the 1988 UEFA football final"""
+This program reports on the goals in the 1988 UEFA football final
+Version 1.1
+Updated "scorers" to use + operand concatenation instead of f-strings
+Revised Part 2 to function for generic names"""
 #Part 1
 scorer1 = 'Ruud Gullit'
 scorer2 = 'Marco van Basten'
 goal_0 = 32
 goal_1 = 54
-scorers = f'{scorer1} {goal_0}, {scorer2} {goal_1}'
-#The assignment requested the use of + operator to define 'scorers'
-#but I ended up writing it as an f-string and wincpy approved
+scorers = scorer1 + ' ' + str(goal_0) + ', ' + scorer2 + ' ' + str(goal_1)
 report = f"""{scorer1} scored in the {goal_0}nd minute
 {scorer2} scored in the {goal_1}th minute"""
 #Part 2
-player = 'Frank Rijkaard'
-first_name = player[0:5]
-last_name_len = len(player[6:])
-name_short = f'{player[0]}. {player[6:]}'
-chant = (f'{player[:5]}! ' * 5)[:-1]
+player = 'Ruud Gullit'
+first_name = player[:player.find(' ')]
+last_name_len = len(player[(player.find(' ') + 1):])
+name_short = f"{player[0]}. {player[(player.find(' ') + 1):]}"
+chant = ((first_name + '! ') * len(first_name)).strip()
 good_chant = chant[-1:] != ' '
 print(good_chant)
 #Adding some prints below for doublecheck
